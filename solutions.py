@@ -2,13 +2,13 @@ from hypothesis import strategies as st
 from internal import any_function
 
 # Integers
-integer_monoid_a = {
+integer_monoid_one = {
   'set': st.integers,
   'operation': lambda a, b: a + b,
   'neutral_element': 0
 }
 
-integer_monoid_b = {
+integer_monoid_two = {
   'set': st.integers,
   'operation': lambda a, b: a * b,
   'neutral_element': 1
@@ -28,13 +28,13 @@ list_monoid = {
 }
 
 # Booleans
-boolean_monoid_a = {
+boolean_monoid_one = {
   'set': st.booleans,
   'operation': lambda a, b: a and b,
   'neutral_element': True
 }
 
-boolean_monoid_b = {
+boolean_monoid_two = {
   'set': st.booleans,
   'operation': lambda a, b: a or b,
   'neutral_element': False
@@ -51,14 +51,14 @@ function_monoid = {
 }
 
 # Property-based-testing
-def integer_addition_property_x(a, b):
+def integer_addition_property_one(a, b):
   return a + b == b + a
 
-def integer_addition_property_y(a, b):
+def integer_addition_property_two(a, b):
   return a + 0 == a
 
-def integer_multiplication_property_x(a, b):
+def integer_multiplication_property_one(a, b):
   return a * b == b * a
 
-def integer_multiplication_property_y(a, b):
+def integer_multiplication_property_two(a, b):
   return a * 1 == a

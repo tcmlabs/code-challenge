@@ -1,21 +1,21 @@
 from hypothesis import given
 from hypothesis import strategies as st
 
-from solutions import string_monoid, integer_monoid_a, integer_monoid_b, boolean_monoid_a, boolean_monoid_b, list_monoid, function_monoid, integer_addition_property_x, integer_addition_property_y,  integer_multiplication_property_x,integer_multiplication_property_y
+from solutions import string_monoid, integer_monoid_one, integer_monoid_two, boolean_monoid_one, boolean_monoid_two, list_monoid, function_monoid, integer_addition_property_one, integer_addition_property_two,  integer_multiplication_property_one,integer_multiplication_property_two
 
 
 # Integers
-@given(integer_monoid_a.get('set')())
+@given(integer_monoid_one.get('set')())
 def test_integer_monoid_a(s):
-    binary_operation = integer_monoid_a.get('operation')
-    neutral_element = integer_monoid_a.get('neutral_element')
+    binary_operation = integer_monoid_one.get('operation')
+    neutral_element = integer_monoid_one.get('neutral_element')
     
     assert(binary_operation(s, neutral_element)) == s
 
-@given(integer_monoid_b.get('set')())
+@given(integer_monoid_two.get('set')())
 def test_integer_monoid_b(s):
-    binary_operation = integer_monoid_b.get('operation')
-    neutral_element = integer_monoid_b.get('neutral_element')
+    binary_operation = integer_monoid_two.get('operation')
+    neutral_element = integer_monoid_two.get('neutral_element')
     
     assert(binary_operation(s, neutral_element)) == s
 
@@ -36,17 +36,17 @@ def test_list_monoid(s):
     assert(binary_operation(s, neutral_element)) == s
 
 # Booleans
-@given(boolean_monoid_a.get('set')())
+@given(boolean_monoid_one.get('set')())
 def test_boolean_monoid_a(s):
-    binary_operation = boolean_monoid_a.get('operation')
-    neutral_element = boolean_monoid_a.get('neutral_element')
+    binary_operation = boolean_monoid_one.get('operation')
+    neutral_element = boolean_monoid_one.get('neutral_element')
     
     assert(binary_operation(s, neutral_element)) == s
 
-@given(boolean_monoid_b.get('set')())
+@given(boolean_monoid_two.get('set')())
 def test_boolean_monoid_b(s):
-    binary_operation = boolean_monoid_b.get('operation')
-    neutral_element = boolean_monoid_b.get('neutral_element')
+    binary_operation = boolean_monoid_two.get('operation')
+    neutral_element = boolean_monoid_two.get('neutral_element')
     
     assert(binary_operation(s, neutral_element)) == s
 
@@ -61,17 +61,17 @@ def test_function_monoid(func, random_value):
 ## PBT addition
 @given(st.integers(), st.integers(), st.integers())
 def test_integer_property_x(a, b, c):
-    assert(integer_addition_property_x(a, b))
+    assert(integer_addition_property_one(a, b))
     
 @given(st.integers(), st.integers(), st.integers())
 def test_integer_property_y(a, b, c):
-    assert(integer_addition_property_y(a, b))
+    assert(integer_addition_property_two(a, b))
 
 ## PBT multiplication
 @given(st.integers(), st.integers(), st.integers())
 def test_multiplication_property_x(a, b, c):
-    assert(integer_multiplication_property_x(a, b))
+    assert(integer_multiplication_property_one(a, b))
     
 @given(st.integers(), st.integers(), st.integers())
 def test_multiplication_property_y(a, b, c):
-    assert(integer_multiplication_property_y(a, b))
+    assert(integer_multiplication_property_two(a, b))
