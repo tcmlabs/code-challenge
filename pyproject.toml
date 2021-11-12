@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "repl_python3_TCMLabsCodeChallenge"
+version = "0.1.0"
+description = ""
+authors = ["Jean-Baptiste Musso <jeanbaptiste@tcmlabs.fr>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pytest = "^6.2.5"
+hypothesis = "^6.24.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
