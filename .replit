@@ -1,1 +1,1 @@
-run="pytest exercices_test.py"
+run="pytest internals/solutions_test.py"

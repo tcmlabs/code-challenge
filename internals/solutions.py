@@ -1,5 +1,5 @@
 from hypothesis import strategies as st
-from internals.functions import any_function
+from functions import any_function
 
 # Integers
 integer_monoid_one = {
