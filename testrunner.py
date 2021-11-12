@@ -1,7 +1,8 @@
 from hypothesis import given
 from hypothesis import strategies as st
 
-from main import string_monoid, integer_monoid_a, integer_monoid_b, boolean_monoid_a, boolean_monoid_b, list_monoid, function_monoid
+from main import string_monoid, integer_monoid_a, integer_monoid_b, boolean_monoid_a, boolean_monoid_b, list_monoid, function_monoid, integer_addition_property_x, integer_addition_property_y,  integer_multiplication_property_x,integer_multiplication_property_y
+
 
 # Integers
 @given(integer_monoid_a.get('set')())
@@ -49,7 +50,6 @@ def test_boolean_monoid_b(s):
     
     assert(binary_operation(s, neutral_element)) == s
 
-
 # Functions
 @given(function_monoid.get('set')(1), st.randoms())
 def test_function_monoid(func, random_value):
@@ -57,3 +57,21 @@ def test_function_monoid(func, random_value):
     neutral_element = function_monoid.get('neutral_element')
     
     assert(binary_operation(func, neutral_element)(random_value)) == func(random_value)
+
+## PBT addition
+@given(st.integers(), st.integers(), st.integers())
+def test_integer_property_x(a, b, c):
+    assert(integer_addition_property_x(a, b))
+    
+@given(st.integers(), st.integers(), st.integers())
+def test_integer_property_y(a, b, c):
+    assert(integer_addition_property_y(a, b))
+
+## PBT multiplication
+@given(st.integers(), st.integers(), st.integers())
+def test_multiplication_property_x(a, b, c):
+    assert(integer_multiplication_property_x(a, b))
+    
+@given(st.integers(), st.integers(), st.integers())
+def test_multiplication_property_y(a, b, c):
+    assert(integer_multiplication_property_y(a, b))
