@@ -26,24 +26,24 @@ integer_monoid_a = {
 # Trouver une opération autre que l'addition, et son élément neutre correspondant
 integer_monoid_b = {
   'set': st.integers,
-  'operation': lambda a, b: a * b,
-  'neutral_element': 1
+  'operation': lambda a, b: None,
+  'neutral_element': None
 }
 
 # Dans l'ensemble des chaines de caractères, trouver une opération et
 # son élément neutre
 string_monoid = {
   'set': st.text,
-  'operation': lambda a, b: a + b,
-  'neutral_element': ''
+  'operation': lambda a, b: None,
+  'neutral_element': None
 }
 
 # Dans l'ensemble des listes (tableaux), trouver une opération et son
 # élément neutre
 list_monoid = {
   'set': lambda _: st.lists(st.randoms()),
-  'operation': lambda a, b: a + b,
-  'neutral_element': []
+  'operation': lambda a, b: None,
+  'neutral_element': None
 }
 
 # Dans l'ensemble des booléens, pour l'opération 'and' &&, trouver
@@ -51,7 +51,7 @@ list_monoid = {
 boolean_monoid_a = {
   'set': st.booleans,
   'operation': lambda a, b: a and b,
-  'neutral_element': True
+  'neutral_element': None
 }
 
 # Dans l'ensemble des booléens, pour l'opération 'or' ||, trouver
@@ -59,7 +59,7 @@ boolean_monoid_a = {
 boolean_monoid_b = {
   'set': st.booleans,
   'operation': lambda a, b: a or b,
-  'neutral_element': False
+  'neutral_element': None
 }
 
 # Dans l'ensemble des fonctions, et pour l'opération de composition
@@ -72,7 +72,7 @@ def function_composition(f, g):
 function_monoid = {
   'set': any_function,
   'operation': function_composition,
-  'neutral_element': lambda x: x
+  'neutral_element': None
 }
 
 # ---------------------------------------------
@@ -82,19 +82,15 @@ function_monoid = {
 # Trouver deux propriétés mathématiques de l'addition des entiers
 # qui sont toujours vraies, quels que soient les entiers a et b
 def integer_addition_property_x(a, b):
-  #return None
-  return a + b == b + a
+  return None
 
 def integer_addition_property_y(a, b):
-  #return None
-  return a + 0 == a
+  return None
 
 # Trouver deux propriétés mathématiques de la multiplication des
 # entiers qui sont toujours vraies, quels que soient a et b
 def integer_multiplication_property_x(a, b):
-  #return None
-  return a * b == b * a
+  return None
 
 def integer_multiplication_property_y(a, b):
-  #return None
-  return a * 1 == a
+  return None

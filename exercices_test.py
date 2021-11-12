@@ -1,7 +1,7 @@
 from hypothesis import given
 from hypothesis import strategies as st
 
-from main import string_monoid, integer_monoid_a, integer_monoid_b, boolean_monoid_a, boolean_monoid_b, list_monoid, function_monoid, integer_addition_property_x, integer_addition_property_y,  integer_multiplication_property_x,integer_multiplication_property_y
+from exercices import string_monoid, integer_monoid_a, integer_monoid_b, boolean_monoid_a, boolean_monoid_b, list_monoid, function_monoid, integer_addition_property_x, integer_addition_property_y,  integer_multiplication_property_x,integer_multiplication_property_y
 
 
 # Integers
