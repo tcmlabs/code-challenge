@@ -1,5 +1,5 @@
 from hypothesis import strategies as st
-from internal import any_function
+from internals.functions import any_function
 
 # ---------------------------------
 # Première partie -- les monoïdes !
